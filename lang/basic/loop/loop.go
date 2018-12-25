@@ -31,6 +31,7 @@ func printFileContents(reader io.Reader) {
 	scanner := bufio.NewScanner(reader)
 
 	for scanner.Scan() {
+		// Scan() -> scan one line
 		fmt.Println(scanner.Text())
 	}
 }
@@ -51,7 +52,7 @@ func main() {
 	)
 
 	fmt.Println("abc.txt contents:")
-	printFile("lang/basic/branch/abc.txt")
+	printFile("../branch/abc.txt")
 
 	fmt.Println("printing a string:")
 	s := `abc"d"

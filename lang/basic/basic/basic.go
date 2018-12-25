@@ -47,6 +47,8 @@ func triangle() {
 
 func calcTriangle(a, b int) int {
 	var c int
+
+	// only can explcitly transform data type
 	c = int(math.Sqrt(float64(a*a + b*b)))
 	return c
 }
@@ -63,6 +65,7 @@ func consts() {
 
 func enums() {
 	const (
+		// iota -> self-increasing value from 0
 		cpp = iota
 		_
 		python
@@ -71,6 +74,7 @@ func enums() {
 	)
 
 	const (
+		// everytime left shift 10 * iota
 		b = 1 << (10 * iota)
 		kb
 		mb

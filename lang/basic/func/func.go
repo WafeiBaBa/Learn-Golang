@@ -16,6 +16,7 @@ func eval(a, b int, op string) (int, error) {
 	case "*":
 		return a * b, nil
 	case "/":
+		// The _ means we don't want to use this parameter.
 		q, _ := div(a, b)
 		return q, nil
 	default:
@@ -24,12 +25,20 @@ func eval(a, b int, op string) (int, error) {
 	}
 }
 
+// a / b = q ... r
 func div(a, b int) (q, r int) {
 	return a / b, a % b
 }
 
+// op() is a function
 func apply(op func(int, int) int, a, b int) int {
+
+	// Reflection
+	// p is a pointer of op
 	p := reflect.ValueOf(op).Pointer()
+
+	// Runtime
+	// opName is "main.main.func1" (package.main.func1). func1 is an anonymous function.
 	opName := runtime.FuncForPC(p).Name()
 	fmt.Printf("Calling function %s with args "+
 		"(%d, %d)\n", opName, a, b)
@@ -45,6 +54,7 @@ func sum(numbers ...int) int {
 	return s
 }
 
+// It is possible to swap them because the parameters are
 func swap(a, b int) (int, int) {
 	return b, a
 }
