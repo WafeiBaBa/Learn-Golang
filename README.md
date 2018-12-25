@@ -1,3 +1,3 @@
 # Learn-Golang
 
-The sample code of the Golang.
+The sample codes of the Golang.
